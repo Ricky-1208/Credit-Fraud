@@ -18,6 +18,7 @@ Follow the outline:
 4. Compute the AUC and plot ROC
 5. Perform the 5-folds-CV
 6. Perform GridSearchCV
+7. Best AUC: 0.9871
 
 ## Analysis in R
 I do Random Forest in R.
@@ -30,8 +31,10 @@ Follow the outline:
 5. Do 5-folds-CV on the train set 
 6. Train the Random forest on the train set
 7. Evaluate it on the test set and work out AUC/ROC curve
+8. Best AUC: 0.968841
 
 ## Things don't consider
 This is a well-defined dataset, which doesn't have the missing value. Meanwhile, I don't deal with the imbalanced data, which may cause some issues.
+Also, several data engineerings (Time, Amount) may be helpful.
 ## Data
 https://drive.google.com/file/d/1zNTbNN-Nvt_0Zsj3XhIF1G_x6v2Ik0Cp/view?usp=drive_link
