@@ -9,7 +9,7 @@ It contains only numerical input variables which are the result of a PCA transfo
 Given the class imbalance ratio, we recommend measuring the accuracy using the Area Under the Precision-Recall Curve (AUPRC). Confusion matrix accuracy is not meaningful for unbalanced classification.
 
 ## Analysis in Python
-I do the XGBoost algorithm in Python. 
+I do XGBoost algorithm in Python. 
 
 Follow the outline: 
 
@@ -26,6 +26,16 @@ Follow the outline:
 6. Perform GridSearchCV
 
 ## Analysis in R
+I do Random Forest in R.
+
+Follow the outline:
+
+1. Read data  Convert class to factor See variables detail 
+2. Missing value  Correlation plot 
+3. Split train and test 
+4. Do 5-folds-CV on the train set 
+5. Train the Random forest on the train set
+6. Evaluate it on the test set and work out AUC/ROC curve.
 
 ## Data
 https://drive.google.com/file/d/1zNTbNN-Nvt_0Zsj3XhIF1G_x6v2Ik0Cp/view?usp=drive_link
