@@ -10,12 +10,19 @@ Given the class imbalance ratio, we recommend measuring the accuracy using the A
 
 ## Analysis in Python
 I do the XGBoost algorithm in Python. 
+
 Follow the outline: 
+
 Explore data analysis
-Check the missing value 
+
+Check the missing value
+
 Split the training and testing
+
 Compute the AUC and plot ROC
+
 Perform the 5-folds-CV
+
 Perform GridSearchCV
 
 ## Analysis in R
