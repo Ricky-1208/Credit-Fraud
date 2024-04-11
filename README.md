@@ -25,12 +25,13 @@ I do Random Forest in R.
 
 Follow the outline:
 
-1. Read data  Convert class to factor See variables detail 
-2. Missing value  Correlation plot 
-3. Split train and test 
-4. Do 5-folds-CV on the train set 
-5. Train the Random forest on the train set
-6. Evaluate it on the test set and work out AUC/ROC curve.
+1. Convert the class to categorical type
+2. Check the missing value
+3. Plot variable correlation 
+4. Split train and test 
+5. Do 5-folds-CV on the train set 
+6. Train the Random forest on the train set
+7. Evaluate it on the test set and work out AUC/ROC curve.
 
 ## Things don't consider
 This is a well-defined dataset, which doesn't have the missing value. Meanwhile, I don't deal with the imbalanced data, which may cause some issues.
