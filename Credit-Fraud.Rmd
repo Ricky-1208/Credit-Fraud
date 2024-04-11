@@ -1,0 +1,118 @@
+---
+title: "Credit-Fraud"
+author: "Ricky"
+date: "2024-04-07"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(needs)
+needs(pROC,
+      randomForest,
+      tidyverse,
+      caret,
+      corrplot,
+      ROCR,
+      xgboost,
+      gridExtra,
+      Matrix,
+      microbenchmark,
+      tictoc
+      )
+```
+
+
+## EDA
+```{r}
+df = read.csv("creditcard.csv")
+df$Class = as.factor(df$Class)
+table(df$Class)
+```
+
+
+```{r}
+str(df)
+```
+
+
+## Check the missing value
+```{r}
+col_missing = sapply(df, function(x) sum(is.na(x)))
+print(col_missing)
+```
+
+
+## Correlation plots
+```{r}
+correlations <- cor(df[,-ncol(df)])
+corrplot(correlations, number.cex = .9, method = "circle", type = "full", tl.cex=0.8,tl.col = "black")
+```
+
+
+## Split data
+```{r}
+set.seed(1234)
+data_index <- createDataPartition(df$Class, p=0.7, list = FALSE)
+train_data <- df[data_index, ]
+test_data <- df[-data_index, ]
+```
+
+
+## Do CV on training set, and calculate the auc of Random Forest based on test set
+```{r}
+
+# Define the control parameters for cross-validation
+fitControl <- trainControl(method = "cv",   # Cross-validation method
+                           number = 5,
+                           preProcOptions = list(thresh = 0.99),
+                           classProbs = TRUE,  # Calculate class probabilities
+                           summaryFunction = twoClassSummary)  # Summary function for binary classification
+train_data$Class <- make.names(train_data$Class)
+
+model_rf <- train(Class~.,
+                  train_data,
+                  method="ranger",
+                  metric="ROC",
+                  preProcess = c('center', 'scale'),
+                  trControl=fitControl)
+# Get predictions on test data
+predictions <- predict(model_rf, newdata = test_data, type = "prob")[,2]
+
+# Create a prediction object
+pred <- prediction(predictions, test_data$Class)
+
+# Compute AUC value
+auc_value <- performance(pred, "auc")@y.values[[1]]
+auc_value
+# Plot ROC curve
+perf <- performance(pred, "tpr", "fpr")
+plot(perf, main = "ROC Curve", col = "blue")
+abline(a = 0, b = 1, lty = 2, col = "red")
+
+```
+
+
+## Do Random Forest with PCA
+```{r}
+model_rf <- train(Class~.,
+                  train_data,
+                  method="ranger",
+                  metric="ROC",
+                  preProcess = c('center', 'scale', 'pca'),
+                  trControl=fitControl)
+# Get predictions on test data
+predictions <- predict(model_rf, newdata = test_data, type = "prob")[,2]
+
+# Create a prediction object
+pred <- prediction(predictions, test_data$Class)
+
+# Compute AUC value
+auc_value <- performance(pred, "auc")@y.values[[1]]
+auc_value
+```
+
