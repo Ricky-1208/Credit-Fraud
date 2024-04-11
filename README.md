@@ -27,3 +27,5 @@ Follow the outline:
 
 ## Analysis in R
 
+## Data
+https://drive.google.com/file/d/1zNTbNN-Nvt_0Zsj3XhIF1G_x6v2Ik0Cp/view?usp=drive_link
