@@ -10,7 +10,6 @@ Given the class imbalance ratio, we recommend measuring the accuracy using the A
 
 ## Analysis in Python
 I do XGBoost algorithm in Python. 
-
 Follow the outline: 
 
 1. Explore data analysis
@@ -22,7 +21,6 @@ Follow the outline:
 
 ## Analysis in R
 I do Random Forest in R.
-
 Follow the outline:
 
 1. Convert the class to categorical type
@@ -31,7 +29,7 @@ Follow the outline:
 4. Split train and test 
 5. Do 5-folds-CV on the train set 
 6. Train the Random forest on the train set
-7. Evaluate it on the test set and work out AUC/ROC curve.
+7. Evaluate it on the test set and work out AUC/ROC curve
 
 ## Things don't consider
 This is a well-defined dataset, which doesn't have the missing value. Meanwhile, I don't deal with the imbalanced data, which may cause some issues.
