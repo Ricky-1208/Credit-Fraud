@@ -32,5 +32,7 @@ Follow the outline:
 5. Train the Random forest on the train set
 6. Evaluate it on the test set and work out AUC/ROC curve.
 
+## Things don't consider
+This is a well-defined dataset, which doesn't have the missing value. Meanwhile, I don't deal with the imbalanced data, which may cause some issues.
 ## Data
 https://drive.google.com/file/d/1zNTbNN-Nvt_0Zsj3XhIF1G_x6v2Ik0Cp/view?usp=drive_link
