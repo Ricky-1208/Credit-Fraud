@@ -13,17 +13,17 @@ I do the XGBoost algorithm in Python.
 
 Follow the outline: 
 
-Explore data analysis
+1. Explore data analysis
 
-Check the missing value
+2. Check the missing value
 
-Split the training and testing
+3. Split the training and testing
 
-Compute the AUC and plot ROC
+4. Compute the AUC and plot ROC
 
-Perform the 5-folds-CV
+5. Perform the 5-folds-CV
 
-Perform GridSearchCV
+6. Perform GridSearchCV
 
 ## Analysis in R
 
