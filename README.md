@@ -9,7 +9,14 @@ It contains only numerical input variables which are the result of a PCA transfo
 Given the class imbalance ratio, we recommend measuring the accuracy using the Area Under the Precision-Recall Curve (AUPRC). Confusion matrix accuracy is not meaningful for unbalanced classification.
 
 ## Analysis in Python
-I do the XGBoost algorithm in Python. Follow the outline: EDA, Check the missing value, Split the training and testing, Compute the AUC and plot ROC, Perform the 5-folds-CV, Perform GridSearchCV.
+I do the XGBoost algorithm in Python. 
+Follow the outline: 
+Explore data analysis
+Check the missing value 
+Split the training and testing
+Compute the AUC and plot ROC
+Perform the 5-folds-CV
+Perform GridSearchCV
 
 ## Analysis in R
 
